@@ -1,0 +1,52 @@
+{
+  "name": "synapse-opencode",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An open-source collaborative multi-agent task runtime for OpenCode V2",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "demo": "node --experimental-strip-types examples/demo.ts",
+    "typecheck": "tsc --noEmit",
+    "report": "node --experimental-strip-types src/cli.ts report",
+    "log-status": "node --experimental-strip-types src/cli.ts log-status",
+    "setup": "node scripts/install.mjs",
+    "contribution": "node --experimental-strip-types src/cli.ts",
+    "monitor": "node --experimental-strip-types src/cli.ts monitor",
+    "profile": "node --experimental-strip-types src/cli.ts profile",
+    "experiments": "node --experimental-strip-types src/cli.ts experiments",
+    "strategy": "node --experimental-strip-types src/cli.ts strategy",
+    "retrospective": "node --experimental-strip-types src/cli.ts retrospective",
+    "storage": "node --experimental-strip-types src/cli.ts storage",
+    "backlog": "node --experimental-strip-types src/cli.ts backlog",
+    "team": "node --experimental-strip-types src/cli.ts team",
+    "costs": "node --experimental-strip-types src/cli.ts costs",
+    "health": "node scripts/health.mjs",
+    "economics": "node --experimental-strip-types src/cli.ts economics",
+    "lean": "node --experimental-strip-types src/cli.ts lean",
+    "doctor": "node --experimental-strip-types src/cli.ts doctor",
+    "typecheck:core": "tsc --noEmit -p tsconfig.core.json",
+    "release:package": "bash scripts/package-release.sh"
+  },
+  "dependencies": {
+    "@opencode/plugin": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "opencode",
+    "multi-agent",
+    "orchestration",
+    "task-graph",
+    "developer-tools"
+  ]
+}

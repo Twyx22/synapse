@@ -1,0 +1,9 @@
+{
+  "objective": "Design an efficient, maintainable TypeScript library with reliable tests",
+  "concurrency": 2,
+  "tasks": [
+    { "id": "architecture", "title": "Architecture", "role": "architect", "instruction": "Propose module boundaries, interfaces, invariants and trade-offs.", "review": true },
+    { "id": "security", "title": "Security analysis", "role": "security_reviewer", "instruction": "Enumerate input validation, authorization and persistence risks.", "review": true },
+    { "id": "implementation_plan", "title": "Implementation plan", "role": "lead_engineer", "instruction": "Combine architecture and security results into an actionable development plan with acceptance criteria.", "dependsOn": ["architecture", "security"], "review": true }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Release assets
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: |
+          test -f package-lock.json || { echo "Commit a reviewed package-lock.json before tagging a release."; exit 1; }
+          npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm audit --audit-level=high
+      - name: Check tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: test "$GITHUB_REF_NAME" = "v$(node -p 'require("./package.json").version')"
+      - name: Package assets
+        run: bash scripts/package-release.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synapse-release-assets
+          path: release-assets/*
+          if-no-files-found: error

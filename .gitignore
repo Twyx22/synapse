@@ -1,0 +1,21 @@
+node_modules/
+dist/
+*.log
+.opencode/synapse-data/
+coverage/
+
+# Local configuration and runtime data
+.env
+.env.*
+!.env.example
+.opencode/
+.synapse-backup-*/
+.synapse-install-*/
+.synapse-install.lock
+*.synapse-backup-*
+synapse-diagnostics-*.zip
+release-assets/
+*.tsbuildinfo
+.DS_Store
+.idea/
+.vscode/

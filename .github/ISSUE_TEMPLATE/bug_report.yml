@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a reproducible problem with Synapse.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: Please remove secrets, private prompts, project data and identifying paths. Do not attach private backups.
+  - type: input
+    id: versions
+    attributes:
+      label: Environment
+      description: Synapse, OpenCode, Node.js and OS versions
+      placeholder: Synapse 1.0.0, OpenCode V2, Node 22, Linux
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostic output
+      description: Relevant doctor, health or log output only. Check redaction before sharing.
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked for existing reports and removed sensitive information.
+          required: true
